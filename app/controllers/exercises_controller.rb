@@ -19,7 +19,7 @@ def create
     # same as:
     # redirect_to user_exercises_path(current_user, @exercise)
   else
-    flash[:alert] = "Exercise has not been created"
+    flash.now[:alert] = "Exercise has not been created"
     render :new
   end
 end
