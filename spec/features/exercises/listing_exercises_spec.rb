@@ -15,10 +15,10 @@ RSpec.feature "List Workouts" do
                                            workout: "Running",
                                            workout_date: 2.days.ago)
 
-    # @exercise3 = @tjitske.exercises.create(duration_in_min: 50,
-    #                                         workout: "Running",
-    #                                         workout_date: 10.days.ago)
-    #
+    @exercise3 = @tjitske.exercises.create(duration_in_min: 40,
+                                            workout: "Running again",
+                                            workout_date: 8.days.ago)
+
   end
 
   scenario "shows user's workouts last 7 days" do
@@ -34,10 +34,10 @@ RSpec.feature "List Workouts" do
     expect(page).to have_content(@exercise2.workout)
     expect(page).to have_content(@exercise2.workout_date)
 
-    # expect(page).not_to have_content(@exercise3.duration_in_min)
-    # expect(page).not_to have_content(@exercise3.workout)
-    # expect(page).not_to have_content(@exercise3.workout_date)
-
+    expect(page).not_to have_content(@exercise3.duration_in_min)
+    expect(page).not_to have_content(@exercise3.workout)
+    expect(page).not_to have_content(@exercise3.workout_date)
+ 
   end
 
   scenario "user has no exercises" do
