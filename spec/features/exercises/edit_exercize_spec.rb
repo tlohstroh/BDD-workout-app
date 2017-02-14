@@ -5,7 +5,7 @@ RSpec.feature "Edit Exercise" do
     # create a user
     @tjitske = User.create( email: "tjitske@example.com", password: "password" )
     # create 2 exercises
-    @tjitske_exercise = @tjitske.exercises.create(duration_in_min: 20,
+    @tjitske_exercise = @tjitske.exercises.create(duration_in_min: 46,
                                             workout: "I'm a pushup machine",
                                             workout_date: Date.today)
                                             # login
@@ -26,7 +26,7 @@ RSpec.feature "Edit Exercise" do
 
     expect(page).to have_content("Exercise has been updated")
     expect(page).to have_content(45)
-    expect(page).not_to have_content(20)
+    expect(page).not_to have_content(46)
 
   end
 

@@ -12,6 +12,23 @@ def new
   @exercise = current_user.exercises.new
 end
 
+def edit
+  @exercise = current_user.exercises.find(params[:id])
+end
+
+def update
+  @exercise = current_user.exercises.find(params[:id])
+  if @exercise.update(exercise_params)
+    flash[:notice] = "Exercise has been updated"
+    redirect_to [current_user, @exercise]
+    # same as:
+    # redirect_to user_exercises_path(current_user, @exercise)
+  else
+    flash.now[:alert] = "Exercise has not been updated"
+    render :edit
+  end
+end
+
 def create
   @exercise = current_user.exercises.new(exercise_params)
   if @exercise.save
