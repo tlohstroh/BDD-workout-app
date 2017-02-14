@@ -5,7 +5,7 @@ RSpec.feature "Edit Exercise" do
     # create a user
     @tjitske = User.create( email: "tjitske@example.com", password: "password" )
     # create 2 exercises
-    @exercise1 = @tjitske.exercises.create(duration_in_min: 20,
+    @tjitske_exercise = @tjitske.exercises.create(duration_in_min: 20,
                                             workout: "I'm a pushup machine",
                                             workout_date: Date.today)
                                             # login
