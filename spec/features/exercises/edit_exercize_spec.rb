@@ -17,7 +17,7 @@ RSpec.feature "Edit Exercise" do
 
     click_link "My Lounge"
     # NOTE !!!
-    path = "users/#{@tjitske.id}/exercises/#{@tjitske_exercise.id}/edit"
+    path = "/users/#{@tjitske.id}/exercises/#{@tjitske_exercise.id}/edit"
     link = "a[href=\'#{path}\']"
     find(link).click
 
