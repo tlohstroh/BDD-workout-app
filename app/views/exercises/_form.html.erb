@@ -8,7 +8,7 @@
           <h2><%= pluralize(@exercise.errors.count, "error") %>
           prohibited this exercise from being saved:</h2>
           <ul>
-          <% @exercise.errors.ful_messages.each do |message| %>
+          <% @exercise.errors.full_messages.each do |message| %>
             <li><%= message %></li>
           <% end %>
           </ul>
