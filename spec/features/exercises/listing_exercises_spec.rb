@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "List Workouts" do
   before do
     # create a user
-    @tjitske = User.create( email: "tjitske@example.com", password: "password" )
+    @tjitske = User.create( first_name: "John", last_name: "Doe", email: "tjitske@example.com", password: "password" )
     # login
     login_as(@tjitske)
     # create 2 exercises
@@ -37,7 +37,7 @@ RSpec.feature "List Workouts" do
     expect(page).not_to have_content(@exercise3.duration_in_min)
     expect(page).not_to have_content(@exercise3.workout)
     expect(page).not_to have_content(@exercise3.workout_date)
- 
+
   end
 
   scenario "user has no exercises" do
