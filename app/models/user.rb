@@ -9,9 +9,14 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+  # works with will_paginate gem to decide how many items per page
+  self.per_page = 10
+
   def full_name
     # "#{first_name} #{last_name}"
     [first_name, last_name]. join(" ")
   end
+
+
 
 end
