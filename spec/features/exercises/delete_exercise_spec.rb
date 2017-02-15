@@ -18,7 +18,7 @@ RSpec.feature "Edit Exercise" do
     click_link "My Lounge"
     # NOTE !!!
     path = "/users/#{@tjitske.id}/exercises/#{@tjitske_exercise.id}"
-    link = "//a[contains(@href, \'#{path}\') and .//text()='Destroy']"
+    link = "//a[contains(@href,\'#{path}\') and .//text()='Delete']"
     find(:xpath, link).click
 
 
