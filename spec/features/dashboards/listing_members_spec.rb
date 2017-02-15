@@ -12,5 +12,4 @@ RSpec.feature "Listing Members" do
     expect(page).to have_content(@john.full_name)
     expect(page).to have_content(@sarah.full_name)
   end
-
 end
