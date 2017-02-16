@@ -16,7 +16,7 @@ RSpec.feature "Edit Exercise" do
 
     # if John is signed in he shouldn't see a follow button behind his name
     href = "/friendships?friend_id=#{@john.id}"
-    expect(page).not_to have_content("Follow", :href => href)
+    expect(page).not_to have_link("Follow", :href => href)
 
     # he should find a follow button behind tjitske's name and click it..
     # NOTE !!
@@ -25,6 +25,6 @@ RSpec.feature "Edit Exercise" do
 
     # after that tjitske's follow button should have disappeared
     href = "/friendships?friend_id=#{@tjitske.id}"
-    expect(page).not_to have_content("Follow", :href => href)
+    expect(page).not_to have_link("Follow", :href => href)
   end
 end

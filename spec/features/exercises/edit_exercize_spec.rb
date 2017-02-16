@@ -12,7 +12,7 @@ RSpec.feature "Edit Exercise" do
     login_as(@tjitske)
   end
 
-  scenario "shows user's workouts last 7 days" do
+  scenario "" do
     visit "/"
 
     click_link "My Lounge"
