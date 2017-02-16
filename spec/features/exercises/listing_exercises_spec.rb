@@ -4,6 +4,7 @@ RSpec.feature "List Workouts" do
   before do
     # create a user
     @tjitske = User.create( first_name: "John", last_name: "Doe", email: "tjitske@example.com", password: "password" )
+    @femke = User.create( first_name: "Femke", last_name: "van Nuijs", email: "femke@example.com", password: "password" )
     # login
     login_as(@tjitske)
     # create 2 exercises
@@ -15,9 +16,11 @@ RSpec.feature "List Workouts" do
                                            workout: "Running",
                                            workout_date: 2.days.ago)
 
-    @exercise3 = @tjitske.exercises.create(duration_in_min: 40,
-                                            workout: "Running again",
-                                            workout_date: 8.days.ago)
+    # @exercise3 = @tjitske.exercises.create(duration_in_min: 40,
+    #                                         workout: "Running again",
+    #                                         workout_date: 8.days.ago)
+
+    @folowing = Friendship.create(user: @tjitske, friend: @femke)
 
   end
 
@@ -34,9 +37,9 @@ RSpec.feature "List Workouts" do
     expect(page).to have_content(@exercise2.workout)
     expect(page).to have_content(@exercise2.workout_date)
 
-    expect(page).not_to have_content(@exercise3.duration_in_min)
-    expect(page).not_to have_content(@exercise3.workout)
-    expect(page).not_to have_content(@exercise3.workout_date)
+    # expect(page).not_to have_content(@exercise3.duration_in_min)
+    # expect(page).not_to have_content(@exercise3.workout)
+    # expect(page).not_to have_content(@exercise3.workout_date)
 
   end
 
@@ -45,11 +48,18 @@ RSpec.feature "List Workouts" do
     @tjitske.exercises.delete_all
 
     visit "/"
-
     click_link "My Lounge"
-
     expect(page).to have_content("No Workouts Yet")
 
 
+  end
+
+  scenario "show a list of user's friends" do
+    visit "/"
+    click_link "My Lounge"
+
+    expect(page).to have_content("My Friends")
+    expect(page).to have_link(@femke.full_name)
+    expect(page).to have_link("Unfollow")
   end
 end
