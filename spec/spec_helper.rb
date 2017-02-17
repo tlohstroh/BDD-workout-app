@@ -96,4 +96,8 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  # https://everydayrails.com/2012/03/12/testing-series-rspec-setup.html
+  require "capybara/rspec"
+
 end
