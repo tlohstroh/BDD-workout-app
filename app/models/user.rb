@@ -13,6 +13,8 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+  # automatically creates chatroom when user signs up.
+  # see private
   after_create :create_chatroom
 
   # works with will_paginate gem to decide how many items per page
