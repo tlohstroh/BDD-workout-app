@@ -1,6 +1,6 @@
 # README
 
-## Project from Udemy BDD RSpec and capybara course. 
+### Project from Udemy BDD RSpec and capybara course. 
 
 This app lets you track your workouts, you can follow other athletes and has a realtime chat function.
 
